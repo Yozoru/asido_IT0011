@@ -30,30 +30,30 @@ print('Sum of digits: ', sumOfDigits)
 print('\nProgram 3') 
 
 print('\nA.')
-rows = 5  # Number of rows
+rows = 5  
 
-for i in range(1, rows + 1):  # Loop for rows
-    for j in range(rows - i):  # Loop for spaces
-        print(" ", end="")  # Print spaces
-    for k in range(1, i + 1):  # Loop for numbers
-        print(k, end="")  # Print numbers
+for i in range(1, rows + 1):  
+    for j in range(rows - i):  
+        print(" ", end="")  
+    for k in range(1, i + 1):  
+        print(k, end="")  
     print()
     
 print('\nB.')
-n = 1  # Start with the first integer which is 1
+n = 1  
 
-while n <= 5:  # Loop hanggang umabot 5
-    count = 1  # Start from the first count sa row
+while n <= 5: 
+    count = 1  
     
-    # Print n amount of integers in each row
+    
     while count <= n:
-        print(n, end="")  # Print n integers in a row
-        count += 1  # Increment count
+        print(n, end="")  
+        count += 1  
         
-    print()  # Move to the next line for the next row
-    n += 2  # Increase n by 2 (to get the next odd number)
+    print()  
+    n += 2  
 
-n = 6 # labas na ng loop kaya print panibago
+n = 6 
 count = 1
 while count <= n:
     print(n, end="")
