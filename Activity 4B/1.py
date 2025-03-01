@@ -1,4 +1,4 @@
-A = {'a', 'g', 'd', 'f', 'c'}
+A = {'a', 'b', 'g', 'd', 'f', 'c'}
 B = {'l', 'm', 'o', 'b', 'c', 'h'}
 C = {'h', 'i', 'j', 'k', 'c', 'd', 'f'}
 
@@ -10,9 +10,9 @@ print(f"b. How many elements are there in B that is not part of A and C: {len(on
 
 print("\nc. Show the following using set operations")
 
-print(f"i. {sorted(C - A)}")     
-print(f"ii. {sorted(A & B & C)}")  
-print(f"iii. {sorted(B & C)}")   
-print(f"iv. {sorted(A & B)}")    
-print(f"v. {sorted(A & B & C)}")  
-print(f"vi. {sorted(B - (A | C))}")  
+print(C - A)    
+print(A & C)  
+print(A & B | B & C) 
+print((A & C) - {'c'})
+print(A & B & C) 
+print(B - (A | C)) 

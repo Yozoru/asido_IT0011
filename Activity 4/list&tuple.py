@@ -14,10 +14,14 @@ def save_file(filename="Activity 4/students.txt"):
     except Exception as e:
         print(f"Error saving file: {e}")
 
+def save_as_file():
+    save_file()
+    print("File saved as 'students.txt'")
+
 def open_file(filename="Activity 4/students.txt"):
     global students
     if not os.path.exists(filename):
-        print("No previous records found. Starting fresh.")
+        print("No previous records found.")
         return
     try:
         with open(filename, "r") as file:
@@ -34,19 +38,11 @@ def show_all_students():
         print("No student records available.")
         return
     print("\nShow All Students Record:")
-    print("1. Order by Last Name")
-    print("2. Order by Grade")
-    choice = input("Choose an option: ")
-    if choice == "1":
-        sorted_students = sorted(students, key=lambda s: s[1][1])  
-    elif choice == "2":
-        sorted_students = sorted(students, key=lambda s: 0.6 * s[2] + 0.4 * s[3], reverse=True)
-    else:
-        print("Invalid choice.")
-        return
+    choice = input("Choose an option (1. Last Name, 2. Grade): ")
+    sorted_students = students[:]
     for s in sorted_students:
         final_grade = 0.6 * s[2] + 0.4 * s[3]
-        print(f"ID: {s[0]}, Name: {s[1][0]} {s[1][1]}, Final Grade: {final_grade:.2f}")
+        print(f"ID: {s[0]}, Name: {s[1][0]} {s[1][1]}, Class Standing: {s[2]}, Major Exam: {s[3]}, Final Grade: {final_grade:.2f}")
 
 def add_record():
     student_id = input("Enter a 6-digit Student ID: ")
@@ -63,7 +59,6 @@ def add_record():
         return
     students.append((student_id, (first_name, last_name), class_standing, major_exam))
     print("Student record added.")
-    save_file()  
 
 def show_student():
     student_id = input("Enter Student ID to search: ")
@@ -101,31 +96,34 @@ def delete_record():
 
 def main():
     while True:
-        print("\nStudent Record")
+        print("\nStudent Record Management System")
         print("1. Open File")
         print("2. Save File")
-        print("3. Show All Students Record")
-        print("4. Show Student Record")
-        print("5. Add Record")
-        print("6. Edit Record")
-        print("7. Delete Record")
-        print("8. Exit")
+        print("3. Save As File")
+        print("4. Show All Students Record")
+        print("5. Show Student Record")
+        print("6. Add Record")
+        print("7. Edit Record")
+        print("8. Delete Record")
+        print("9. Exit")
         choice = input("Enter your choice: ")
         if choice == "1":
             open_file()
         elif choice == "2":
             save_file()
         elif choice == "3":
-            show_all_students()
+            save_as_file()
         elif choice == "4":
-            show_student()
+            show_all_students()
         elif choice == "5":
-            add_record()
+            show_student()
         elif choice == "6":
-            edit_record()
+            add_record()
         elif choice == "7":
-            delete_record()
+            edit_record()
         elif choice == "8":
+            delete_record()
+        elif choice == "9":
             print("Exiting...")
             break
         else:
