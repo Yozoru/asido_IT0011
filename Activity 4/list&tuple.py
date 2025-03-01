@@ -101,7 +101,7 @@ def delete_record():
 
 def main():
     while True:
-        print("\nStudent Record Management System")
+        print("\nStudent Record")
         print("1. Open File")
         print("2. Save File")
         print("3. Show All Students Record")
